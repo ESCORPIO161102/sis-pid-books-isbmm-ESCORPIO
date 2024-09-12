@@ -2,9 +2,9 @@
     --color-primary: #1abc9c;
     --color-secondary: #76d7c4;
     --color-white: white;
-    --color-success: green;
-    --color-danger: red;
-    --color-info: blue;
+    --color-success: #52be80;
+    --color-danger: #cd6155;
+    --color-info: #5499c7;
 }
 
 * {
@@ -70,4 +70,35 @@ select {
 .button>button:hover {
     background: var(--color-primary);
     color: var(--color-white);
+}
+
+.alert {
+    width: 100%;
+    border-radius: 0.2rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.alert>.alert-title {
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.alert>.alert-text {
+    font-size: 0.7rem;
+}
+
+.success {
+    background: var(--color-success);
+}
+
+.danger {
+    background: var(--color-danger);
+}
+
+.info {
+    background: var(--color-info);
+}
+
+.hidden {
+    display: none !important;
 }

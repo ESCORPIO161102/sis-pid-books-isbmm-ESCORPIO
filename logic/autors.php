@@ -1,5 +1,8 @@
 <?php
-
+if($_POST){
+    print_r($_POST);
+    die();
+}
 /*
 insert a autors
 */

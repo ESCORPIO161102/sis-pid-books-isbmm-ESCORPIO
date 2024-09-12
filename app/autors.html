@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autores</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-
 </head>
 
 <body>
     <div class="box-form">
-        <form action="">
+        <h1 style="font-size: 1.5rem; color: var(--color-primary);margin-bottom: 1rem;">Registro Autores</h1>
+        <form id="formSave">
             <div class="input-form input">
                 <label for="">Nombre</label>
-                <input type="text">
+                <input type="text" name="txtName" id="txtName">
             </div>
             <div class="input-form input">
                 <label for="">Nacionalidad</label>
-                <select name="" id="">
+                <select name="sltNacionalidad" id="sltNacionalidad">
                     <option value="" disabled selected>Seleccione una opcion</option>
                     <option value="Peruano">Peruano</option>
                 </select>
@@ -25,12 +26,14 @@
             <div class="input-form button">
                 <button type="submit">Registrar</button>
             </div>
-
-            </div>
         </form>
-
+        <div class="alert success hidden">
+            <p class="alert-title">Este es el titulo de la alerta</p>
+            <p class="alert-text">Este es el texto de la alerta</p>
+        </div>
     </div>
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/js_autors.js"></script>
 </body>
 
 </html>
