@@ -19,7 +19,6 @@ try {
 
 } catch (PDOException $errors) {
     $status = false ;
-     
     $result = array(
         "status"=> false,
         "title"=> "Ocurrio un error inesperado",

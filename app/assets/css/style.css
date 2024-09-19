@@ -31,6 +31,14 @@ body {
     box-shadow: 0rem 0rem 0.5rem black;
 }
 
+.box-table{
+    width: 80%;
+    background: var(--color-white);
+    margin: 4rem auto 0 auto;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0rem 0rem 0.5rem black;
+}
 .input-form {
     width: 100%;
     display: flex;
@@ -101,4 +109,36 @@ select {
 
 .hidden {
     display: none !important;
+}
+.style-table{
+    border-collapse: collapse;
+    margin: 1rem auto;
+    font-size: 1;
+    min-width: 400px;
+    width: 100%;
+    border-radius: 0.2rem;
+    overflow: hidden;
+
+    }
+
+    .style-table thead tr{
+
+        background: var(--color-primary);
+        color: var(--color-white);
+        text-align: left;
+        font-weight: bold;
+}
+.style-table th,td{
+    padding: 0.3;
+
+}
+.style-table tbody tr{
+    border-bottom: 0.1 solid var(--color-primary);
+
+}
+.style-table tbody tr:nth-of-type(even){
+    background: var(--color-secondary);
+}
+.style-table tbody tr:last-of-type{
+    border-bottom: 0.2rem solid var(--color-primary);
 }

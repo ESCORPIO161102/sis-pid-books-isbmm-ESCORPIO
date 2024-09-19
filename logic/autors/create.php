@@ -2,10 +2,35 @@
 
 if ($_POST) {
 
-    require_once "../conexion.php";
+    
 
+    require_once "../conexion.php";
+    if (!isset($_POST["sltNacionalidad"])) {
+        $result = array(
+            "status" => false,
+            "title" => "Ocurrio un error inesperado",
+            "text" => "No has seleccionado una nacionalidad",
+            "date" => date("Y-m-d H:i:s"),
+            "type" => "danger"
+
+        );
+        echo json_encode($result);
+        die();
+    }
     $txtName = $_POST["txtName"];
     $sltNacionalidad = $_POST["sltNacionalidad"];
+    if ($txtName == "") {
+        $result = array(
+            "status" => false,
+            "title" => "Ocurrio un error inesperado",
+            "text" => "No se el ingreso de nombre vacio" ,
+            "date" => date("Y-m-d H:i:s"),
+            "type" => "danger"
+
+        );
+        echo json_encode($result);
+        die();
+    }
     /*
  * Insert a autors
  */
