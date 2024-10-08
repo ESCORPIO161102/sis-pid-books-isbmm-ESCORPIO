@@ -20,26 +20,16 @@ function formInsert() {
             cache: "no-cache",
             body: data
         };
-        let url = url_logic + "books/create.php";
+        let url = url_logic + "libros/create.php";
         try {
             fetch(url, config).
                 then(response => response.json()).
-                then(data =>{
+                then(data => {
                     if (data.status) {
-                        let alertMsj = document.querySelector(".alert");
-                        alertMsj.classList.toggle("hidden");
-                        alertMsj.classList.toggle(data.type)
-                        document.querySelector(".alert-title").innerHTML = data.title
-                        document.querySelector(".alert-text").innerHTML = data.text
-                        console.log(data);
+                        alertas(data)
                     } else {
-                        let alertMsj = document.querySelector(".alert");
-                        alertMsj.classList.toggle("hidden");
-                        alertMsj.classList.toggle(data.type)
-                        document.querySelector(".alert-title").innerHTML = data.title
-                        document.querySelector(".alert-text").innerHTML = data.text
+                        alertas(data)
                     }
-
                 })
         } catch (error) {
             console.log(error)

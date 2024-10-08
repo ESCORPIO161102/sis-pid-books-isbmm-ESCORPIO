@@ -1,13 +1,25 @@
 <?php
 if ($_POST) {
     require_once "../conexion.php";
-    $txtIdAutor = $_POST["idAutor"];
-
-    if ($txtIdAutor == "") {
+    if (!isset($_POST["txtFecha"])) {
         $result = array(
             "status" => false,
             "title" => "Ocurrio un error inesperado",
-            "text" => "No se permite el ingreso de campos vacios",
+            "text" => "No se permite un registro de ventas sin una fecha",
+            "date" => date("Y-m-d H:i:s"),
+            "type" => "danger"
+        );
+        echo json_encode($result);
+        die();
+    }
+    $txtFecha = $_POST["txtFecha"];
+    $txtMonto = $_POST["txtMonto"];
+    $libro = $_POST["txtLibro"];
+    if ($txtMonto == "") {
+        $result = array(
+            "status" => false,
+            "title" => "Ocurrio un error inesperado",
+            "text" => "No se permite el registro de un campo vacio",
             "date" => date("Y-m-d H:i:s"),
             "type" => "danger"
         );
@@ -15,20 +27,24 @@ if ($_POST) {
         die();
     }
     /*
- *delete a autors
+ * Insert a autors
  */
     if ($conexion) {
         try {
-            $sql = "DELETE FROM `tb_autors` WHERE  `autorId`=:txtAutorId";
-            $autorId = $txtIdAutor;
+            $sql = "INSERT INTO tb_sales (bookId,dateSale,amount) VALUES (:txtLibro,:txtFecha,:txtMonto);";
+            $fecha = $txtFecha;
+            $monto = $txtMonto;
+            $libro = $libro;
             $prepared = $conexion->prepare($sql);
-            $prepared->bindParam(":txtAutorId", $autorId);
+            $prepared->bindParam(':txtFecha', $fecha);
+            $prepared->bindParam(':txtMonto', $monto);
+            $prepared->bindParam(':txtLibro', $libro);
             $excute = $prepared->execute();
             if ($excute) {
                 $result = array(
                     "status" => true,
-                    "title" => "Correcto",
-                    "text" => "Registro eliminado correctamente",
+                    "title" => "Satisfactorio",
+                    "text" => "Se registro de manera correcta el registro",
                     "date" => date("Y-m-d H:i:s"),
                     "type" => "success"
                 );

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Autores</title>
+    <title>Lista de Libros</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -25,22 +25,30 @@
     </nav>
     <div style="width:70%; margin: auto;">
         <div class="box-form hidden form-update">
-            <h1 style="font-size: 1.5rem; color: var(--color-primary);margin-bottom: 1rem;">Actualizar Autores</h1>
+            <h1 style="font-size: 1.5rem; color: var(--color-primary);margin-bottom: 1rem;">Actualizar Libros</h1>
             <form id="formUpdate">
-                <input type="hidden" name="idAutor" id="idAutor">
+                <input type="hidden" name="bookid" id="bookid">
                 <div class="input-form input">
-                    <label for="">Nombre</label>
-                    <input type="text" name="txtName" id="txtName">
+                    <label for="">Libro</label>
+                    <input type="text" name="txtTitle" id="txtTitle">
                 </div>
                 <div class="input-form input">
-                    <label for="">Nacionalidad</label>
-                    <select name="sltNacionalidad" id="sltNacionalidad">
+                    <label for="">Genero</label>
+                    <select name="txtGender" id="txtGender">
                         <option value="" disabled selected>Seleccione una opcion</option>
-                        <option value="Peruano">Peruano</option>
-                        <option value="Brazileño">Brazileño</option>
-                        <option value="Argentino">Argentino</option>
-                        <option value="Español">Español</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Latino">Latino</option>
+                        <option value="Ciencia ficcion">Ciencia ficcion</option>
+                        <option value="Historia">Historia</option>
                     </select>
+                </div>
+                <div class="input-form input">
+                    <label for="">Precio</label>
+                    <input type="number" name="txtPrice" id="txtPrice">
+                </div>
+                <div class="input-form input">
+                    <label for="">Autor</label>
+                    <input type="text" name="txtAutor" id="txtAutor">
                 </div>
                 <div class="input-form button">
                     <button type="submit">Actualizar</button>
@@ -53,7 +61,7 @@
             </div>
         </div>
         <div class="box-table">
-            <h1 style="font-size: 1.5rem; color: var(--color-primary);margin-bottom: 1rem;">Lista Autores</h1>
+            <h1 style="font-size: 1.5rem; color: var(--color-primary);margin-bottom: 1rem;">Lista de Libros</h1>
             <div class="alert hidden">
                 <p class="alert-title">Este es el titulo de la alerta</p>
                 <p class="alert-text">Este es el texto de la alerta</p>
@@ -62,8 +70,10 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nombre</th>
-                        <th>Nacionalidad</th>
+                        <th>Libro</th>
+                        <th>Genero</th>
+                        <th>Precio</th>
+                        <th>Autor</th>
                         <th>Accion</th>
                     </tr>
                 </thead>
@@ -75,7 +85,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/js_listautors.js"></script>
+    <script src="./assets/js/js_listbooks.js"></script>
 </body>
 
 </html>

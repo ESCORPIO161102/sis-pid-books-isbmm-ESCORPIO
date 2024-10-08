@@ -15,20 +15,15 @@ try {
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //Forzamos el uso de consultas con UTF8
     $conexion->exec("SET NAMES 'utf8'");
-    $status = true ;
-
+    $status = true;
 } catch (PDOException $errors) {
-    $status = false ;
     $result = array(
-        "status"=> false,
-        "title"=> "Ocurrio un error inesperado",
+        "status" => false,
+        "title" => "Ocurrio un error inesperado",
         "text" => "Ah sucedido un error : " . $errors->getMessage() . "!",
-        "date"=> date("Y-m-d H:i:s"),
+        "date" => date("Y-m-d H:i:s"),
         "type" => "danger"
-
-);
-echo json_encode($result);
-die();
-
-
+    );
+    echo json_encode($result);
+    die();
 }

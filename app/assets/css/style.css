@@ -20,6 +20,8 @@ html {
 
 body {
     background: var(--color-primary);
+    display: flex;
+    flex-direction: row;
 }
 
 .box-form {
@@ -31,14 +33,15 @@ body {
     box-shadow: 0rem 0rem 0.5rem black;
 }
 
-.box-table{
-    width: 80%;
+.box-table {
+    width: 100%;
     background: var(--color-white);
     margin: 4rem auto 0 auto;
     border-radius: 0.5rem;
     padding: 1rem;
     box-shadow: 0rem 0rem 0.5rem black;
 }
+
 .input-form {
     width: 100%;
     display: flex;
@@ -110,7 +113,8 @@ select {
 .hidden {
     display: none !important;
 }
-.style-table{
+
+.style-table {
     border-collapse: collapse;
     margin: 1rem auto;
     font-size: 1;
@@ -118,27 +122,97 @@ select {
     width: 100%;
     border-radius: 0.2rem;
     overflow: hidden;
-
-    }
-
-    .style-table thead tr{
-
-        background: var(--color-primary);
-        color: var(--color-white);
-        text-align: left;
-        font-weight: bold;
 }
-.style-table th,td{
-    padding: 0.3;
 
+.style-table thead tr {
+    background: var(--color-primary);
+    color: var(--color-white);
+    text-align: left;
+    font-weight: bold;
 }
-.style-table tbody tr{
-    border-bottom: 0.1 solid var(--color-primary);
 
+.style-table th,
+td {
+    padding: 0.3rem;
 }
-.style-table tbody tr:nth-of-type(even){
+
+.style-table tbody tr {
+    border-bottom: 0.1rem solid var(--color-primary);
+}
+
+.style-table tbody tr:nth-of-type(even) {
     background: var(--color-secondary);
 }
-.style-table tbody tr:last-of-type{
+
+.style-table tbody tr:last-of-type {
     border-bottom: 0.2rem solid var(--color-primary);
+}
+
+.btn-update {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    background: var(--color-info);
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    color: var(--color-white);
+    cursor: pointer;
+    margin: 0.1rem;
+    transition: all 0.250ms ease-in-out;
+}
+
+.btn-update:hover,
+.btn-delete:hover {
+    box-shadow: 0 0 0.2rem black;
+}
+
+.btn-delete {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    background-color: var(--color-danger);
+    padding: 0.2rem;
+    color: var(--color-white);
+    border-radius: 0.2rem;
+    cursor: pointer;
+    margin: 0.1rem;
+    transition: all 0.250ms ease-in-out;
+}
+
+.menu-bar {
+    background: var(--color-white);
+    margin: 1rem 1rem;
+    width: 20%;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    box-shadow: 0rem 0rem 0.5rem;
+}
+
+.menu-bar>ul {
+    list-style: none;
+    width: 100%;
+}
+
+.menu-bar>ul li {
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.menu-bar>ul li:hover {
+    background-color: var(--color-primary);
+    border-radius: 1rem;
+}
+
+.menu-bar>ul li>a {
+    text-decoration: none;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.menu-bar>ul li>a:hover {
+    color: var(--color-white);
 }

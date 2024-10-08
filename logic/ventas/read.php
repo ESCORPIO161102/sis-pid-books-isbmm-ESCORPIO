@@ -5,7 +5,7 @@ require_once("../conexion.php");
 */
 if ($conexion) {
     try {
-        $sql = "SELECT*FROM tb_autors;";
+        $sql = "SELECT*FROM tb_sales;";
         $prepared = $conexion->prepare($sql);
         $prepared->execute();
         $result = $prepared->fetchAll(PDO::FETCH_ASSOC);

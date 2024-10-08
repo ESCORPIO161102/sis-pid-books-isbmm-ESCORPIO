@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Autores</title>
+    <title>Lista de ventas</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -25,22 +25,20 @@
     </nav>
     <div style="width:70%; margin: auto;">
         <div class="box-form hidden form-update">
-            <h1 style="font-size: 1.5rem; color: var(--color-primary);margin-bottom: 1rem;">Actualizar Autores</h1>
+            <h1 style="font-size: 1.5rem; color: var(--color-primary);margin-bottom: 1rem;">Actualizar Ventas</h1>
             <form id="formUpdate">
-                <input type="hidden" name="idAutor" id="idAutor">
+                <input type="hidden" name="txtVenta" id="txtVenta">
                 <div class="input-form input">
-                    <label for="">Nombre</label>
-                    <input type="text" name="txtName" id="txtName">
+                    <label for="">Fecha</label>
+                    <input type="date" name="txtFecha" id="txtFecha">
                 </div>
                 <div class="input-form input">
-                    <label for="">Nacionalidad</label>
-                    <select name="sltNacionalidad" id="sltNacionalidad">
-                        <option value="" disabled selected>Seleccione una opcion</option>
-                        <option value="Peruano">Peruano</option>
-                        <option value="Brazileño">Brazileño</option>
-                        <option value="Argentino">Argentino</option>
-                        <option value="Español">Español</option>
-                    </select>
+                    <label for="">Cantidad</label>
+                    <input type="number" name="txtMonto" id="txtMonto">
+                </div>
+                <div class="input-form input">
+                    <label for="">BookId</label>
+                    <input type="number" name="txtLibro" id="txtLibro">
                 </div>
                 <div class="input-form button">
                     <button type="submit">Actualizar</button>
@@ -53,7 +51,7 @@
             </div>
         </div>
         <div class="box-table">
-            <h1 style="font-size: 1.5rem; color: var(--color-primary);margin-bottom: 1rem;">Lista Autores</h1>
+            <h1 style="font-size: 1.5rem; color: var(--color-primary);margin-bottom: 1rem;">Lista de Ventas</h1>
             <div class="alert hidden">
                 <p class="alert-title">Este es el titulo de la alerta</p>
                 <p class="alert-text">Este es el texto de la alerta</p>
@@ -62,9 +60,10 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nombre</th>
-                        <th>Nacionalidad</th>
-                        <th>Accion</th>
+                        <th>Fecha</th>
+                        <th>Cantidad</th>
+                        <th>ID Libro</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,7 +74,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/js_listautors.js"></script>
+    <script src="./assets/js/js_listsales.js"></script>
 </body>
 
 </html>

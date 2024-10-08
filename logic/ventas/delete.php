@@ -1,9 +1,9 @@
 <?php
 if ($_POST) {
     require_once "../conexion.php";
-    $txtIdAutor = $_POST["idAutor"];
+    $txtIdVenta = $_POST["idVenta"];
 
-    if ($txtIdAutor == "") {
+    if ($txtIdVenta == "") {
         $result = array(
             "status" => false,
             "title" => "Ocurrio un error inesperado",
@@ -19,10 +19,10 @@ if ($_POST) {
  */
     if ($conexion) {
         try {
-            $sql = "DELETE FROM `tb_autors` WHERE  `autorId`=:txtAutorId";
-            $autorId = $txtIdAutor;
+            $sql = "DELETE FROM `tb_sales` WHERE  `saleId`=:txtSaleId";
+            $saleId = $txtIdVenta;
             $prepared = $conexion->prepare($sql);
-            $prepared->bindParam(":txtAutorId", $autorId);
+            $prepared->bindParam(":txtSaleId", $saleId);
             $excute = $prepared->execute();
             if ($excute) {
                 $result = array(

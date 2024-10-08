@@ -2,44 +2,49 @@
 if($_POST){
 
 require_once "../conexion.php";
-if (!isset($_POST["sltNacionalidad"])) {
+if (!isset($_POST["txtMonto"])) {
     $result = array(
         "status" => false,
         "title" => "Ocurrio un error inesperado",
-        "text" => "No has seleccionado una nacionalidad",
+        "text" => "No has seleccionado una cantidad",
         "date" => date("Y-m-d H:i:s"),
         "type" => "danger"
     );
     echo json_encode($result);
     die();
 }
-$txtIdAutor= $_POST["idAutor"];
-$txtName = $_POST["txtName"];
-$sltNacionalidad = $_POST["sltNacionalidad"];
-if ($txtName == ""|| $txtIdAutor== "") {
+$txtVenta=$_POST["txtVenta"];
+$txtFecha = $_POST["txtFecha"];
+$txtMonto = $_POST["txtMonto"];
+$libro = $_POST["txtLibro"];
+if ($txtFecha == "") {
     $result = array(
         "status" => false,
         "title" => "Ocurrio un error inesperado",
-        "text" => "No se permite el ingreso de nombre vacio",
+        "text" => "No se permite el ingreso de un campo sin una fecha",
         "date" => date("Y-m-d H:i:s"),
         "type" => "danger"
     );
     echo json_encode($result);
     die();
 }
+
+
 /*
  *Update a autors 
  */
 if ($conexion) {
     try {
-        $sql = "UPDATE tb_autors SET a_name=:txtName, a_nacionalidad=:txtNacionalidad WHERE autorId=:txtAutorId;";
-        $name = $txtName;
-        $nacionalidad = $sltNacionalidad;
-        $autorId = $txtIdAutor;
+        $sql = "UPDATE tb_sales SET dateSale=:txtFecha, amount=:txtMonto, bookId=:txtBook WHERE saleId=:txtVenta;";
+        $fecha = $txtFecha;
+        $monto = $txtMonto;
+        $libro = $libro;
+        $venta = $txtVenta;
         $prepared = $conexion->prepare($sql);
-        $prepared->bindParam(":txtName", $name);
-        $prepared->bindParam(":txtNacionalidad", $nacionalidad);
-        $prepared->bindParam(":txtAutorId", $autorId);
+        $prepared->bindParam(":txtFecha", $fecha);
+        $prepared->bindParam(":txtMonto", $monto);
+        $prepared->bindParam(":txtBook", $libro);
+        $prepared->bindParam(":txtVenta", $venta);
         $excute = $prepared->execute();
         if ($excute) {
             $result = array(

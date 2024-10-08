@@ -2,21 +2,23 @@
 if($_POST){
 
 require_once "../conexion.php";
-if (!isset($_POST["sltNacionalidad"])) {
+if (!isset($_POST["txtGender"])) {
     $result = array(
         "status" => false,
         "title" => "Ocurrio un error inesperado",
-        "text" => "No has seleccionado una nacionalidad",
+        "text" => "No has seleccionado un genero",
         "date" => date("Y-m-d H:i:s"),
         "type" => "danger"
     );
     echo json_encode($result);
     die();
 }
-$txtIdAutor= $_POST["idAutor"];
-$txtName = $_POST["txtName"];
-$sltNacionalidad = $_POST["sltNacionalidad"];
-if ($txtName == ""|| $txtIdAutor== "") {
+$txtbook= $_POST["bookid"];
+$txtTitle = $_POST["txtTitle"];
+$txtGender = $_POST["txtGender"];
+$txtPrice = $_POST["txtPrice"];
+$txtAutor = $_POST["txtAutor"];
+if ($txtTitle == "") {
     $result = array(
         "status" => false,
         "title" => "Ocurrio un error inesperado",
@@ -27,19 +29,24 @@ if ($txtName == ""|| $txtIdAutor== "") {
     echo json_encode($result);
     die();
 }
+
 /*
  *Update a autors 
  */
 if ($conexion) {
     try {
-        $sql = "UPDATE tb_autors SET a_name=:txtName, a_nacionalidad=:txtNacionalidad WHERE autorId=:txtAutorId;";
-        $name = $txtName;
-        $nacionalidad = $sltNacionalidad;
-        $autorId = $txtIdAutor;
+        $sql = "UPDATE tb_books SET b_title=:txtTitle, b_gender=:txtGender, b_price=:txtPrice, autorId=:txtAutor WHERE bookId=:txtbookid;";
+        $title = $txtTitle;
+        $gender = $txtGender;
+        $price = $txtPrice;
+        $autor = $txtAutor;
+        $libro = $txtbook;
         $prepared = $conexion->prepare($sql);
-        $prepared->bindParam(":txtName", $name);
-        $prepared->bindParam(":txtNacionalidad", $nacionalidad);
-        $prepared->bindParam(":txtAutorId", $autorId);
+        $prepared->bindParam(":txtTitle", $title);
+        $prepared->bindParam(":txtGender", $gender);
+        $prepared->bindParam(":txtPrice", $price);
+        $prepared->bindParam(":txtAutor", $autor);
+        $prepared->bindParam(":txtbookid", $libro);
         $excute = $prepared->execute();
         if ($excute) {
             $result = array(

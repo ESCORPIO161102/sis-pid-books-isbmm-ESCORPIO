@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autores</title>
+    <title>Ventas</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -24,21 +24,20 @@
         </ul>
     </nav>
     <div class="box-form">
-        <h1 style="font-size: 1.5rem; color: var(--color-primary);margin-bottom: 1rem;">Registro Autores</h1>
+        <h1 style="font-size: 1.5rem; color: var(--color-primary);margin-bottom: 1rem;">Registro de ventas</h1>
         <form id="formSave">
+            <input type="hidden" name="txtVenta" id="txtVenta">
             <div class="input-form input">
-                <label for="">Nombre</label>
-                <input type="text" name="txtName" id="txtName">
+                <label for="">Fecha</label>
+                <input type="date" name="txtFecha" id="txtFecha">
             </div>
             <div class="input-form input">
-                <label for="">Nacionalidad</label>
-                <select name="sltNacionalidad" id="sltNacionalidad">
-                    <option value="" disabled selected>Seleccione una opcion</option>
-                    <option value="Peruano">Peruano</option>
-                    <option value="Brazileño">Brazileño</option>
-                    <option value="Argentino">Argentino</option>
-                    <option value="Español">Español</option>
-                </select>
+                <label for="">Cantidad</label>
+                <input type="number" name="txtMonto" id="txtMonto">
+            </div>
+            <div class="input-form input">
+                <label for="">BookId</label>
+                <input type="number" name="txtLibro" id="txtLibro">
             </div>
             <div class="input-form button">
                 <button type="submit">Registrar</button>
@@ -50,7 +49,7 @@
         </div>
     </div>
     <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/js_autors.js"></script>
+    <script src="./assets/js/js_sales.js"></script>
 </body>
 
 </html>
